@@ -1,0 +1,51 @@
+{
+  "id": "2375034",
+  "name": "no name",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "623153",
+      "name": "shouye02",
+      "font_class": "shouye02",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "623278",
+      "name": "shouye01",
+      "font_class": "shouye01",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "738193",
+      "name": "公告",
+      "font_class": "gonggao",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "4630553",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "6528212",
+      "name": "我的",
+      "font_class": "wode1",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "10715426",
+      "name": "公告",
+      "font_class": "gonggao1",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    }
+  ]
+}

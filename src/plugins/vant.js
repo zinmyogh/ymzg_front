@@ -1,0 +1,56 @@
+import Vue from "vue";
+import {
+  Lazyload,
+  Button,
+  Swipe,
+  SwipeItem,
+  Grid,
+  GridItem,
+  Col,
+  Row,
+  Tabbar,
+  TabbarItem,
+  Form,
+  Field,
+  Icon,
+  Panel,
+  Radio,
+  RadioGroup,
+  Steps,
+  Step,
+  SubmitBar,
+  Tag,
+  Cell,
+  CellGroup,
+  Pagination,
+  Calendar,
+  Collapse,
+  CollapseItem,
+} from "vant";
+
+Vue.use(Button)
+  .use(Lazyload)
+  .use(Swipe)
+  .use(SwipeItem)
+  .use(Grid)
+  .use(GridItem)
+  .use(Col)
+  .use(Row)
+  .use(Tabbar)
+  .use(TabbarItem)
+  .use(Form)
+  .use(Field)
+  .use(Icon)
+  .use(Panel)
+  .use(Radio)
+  .use(RadioGroup)
+  .use(Steps)
+  .use(Step)
+  .use(SubmitBar)
+  .use(Tag)
+  .use(Cell)
+  .use(CellGroup)
+  .use(Pagination)
+  .use(Calendar)
+  .use(Collapse)
+  .use(CollapseItem);

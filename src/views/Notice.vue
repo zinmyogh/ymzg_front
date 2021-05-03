@@ -89,7 +89,7 @@ import defaultSetting from '@/settings'
     created() {
       this.getImage()
       this.getlink()
-      this.getCarousel()
+      // this.getCarousel()
       this.getBulletin()
     },
     methods: {

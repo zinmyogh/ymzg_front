@@ -194,12 +194,13 @@ import $axios from 'axios'
             message: '请填写完成后注册！'
           })
         }
-        // if (this.code !== this.gCode.toString()) {
-        //   return Toast({
-        //     position: 'top',
-        //     message: '验证码不正确！'
-        //   })
-        // }
+        // console.log(this.code ,this.gCode)
+        if ((this.code !== this.gCode.toString()) || this.code == '' || this.gCode.toString() == '') {
+          return Toast({
+            position: 'top',
+            message: '验证码不正确！'
+          })
+        }
         const reqt = {
           name: this.register.phone,
           password: this.$md5(this.register.password),

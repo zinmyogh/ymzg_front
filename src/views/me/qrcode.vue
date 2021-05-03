@@ -28,7 +28,7 @@ export default {
     return {
       qrLink: "http://a03.lengthy8868.com/app.php/211",
       imgUrl: "",
-      qrbgimg: '../../assets/images/share.jpg'
+      qrbgimg: ''
     }
   },
   computed: {

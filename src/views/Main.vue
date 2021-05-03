@@ -74,7 +74,7 @@ export default {
     ...mapState({ loginState: state => state.user.login, userInfo: state => state.user.info, cimg: state => state.user.carouselImg })
   },
   created() {
-    this.getCarousel()
+    // this.getCarousel()
   },
   methods: {
     goBack() {

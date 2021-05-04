@@ -26,7 +26,7 @@ import defaultSetting from '@/settings'
 export default {
   data() {
     return {
-      qrLink: "http://a03.lengthy8868.com/app.php/211",
+      qrLink: "https://tap.dierna.com/EjmE",
       imgUrl: "",
       qrbgimg: ''
     }

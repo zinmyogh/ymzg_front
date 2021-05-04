@@ -1,6 +1,6 @@
 <template>
   <div class="splash-screen">
-    <img class="splash" :src="downloadImg(img)" alt="">
+    <img class="splash" :src="loginImg" alt="">
     <div class="show-time" @click="skipToLogin()">{{ timeGo }}</div>
   </div>
 </template>
@@ -9,6 +9,7 @@
 import { getLoginImage, getImage } from '@/api/home'
 import defaultSetting from '@/settings'
 import { getLOgin } from '@/utils/auth'
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -18,10 +19,15 @@ export default {
     }
   },
   created() {
-    this.getLoginImg()
+    // this.getLoginImg()
+    // console.log('ccccccccccc', config)
+  },
+  computed: {
+    ...mapState({ loginImg: state => state.user.loginImg })
   },
   methods: {
     downloadImg(imgName) {
+      if(imgName == '') return
       // console.log('send imagname ', imgName)
       // let srcImg =
       //   "http://" +

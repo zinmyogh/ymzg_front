@@ -1,7 +1,7 @@
 <template>
   <div class="qr">
     <!--  :style="{background:`url(${downloadImg(qrbgimg)})`}" , backgroundRepeat: 'no-repeat' backgroundSize: '100% 100%'-->
-    <img class="bg" :src="downloadImg(qrbgimg)" alt="">
+    <img class="bg" :src="shareBg" alt="">
     <div style="padding: 15px 0;">
     </div>
     <div ref="qrDom" class="dcom">
@@ -32,27 +32,28 @@ export default {
     }
   },
   computed: {
-    ...mapState({ userInfo: state => state.user.info})
+    ...mapState({ userInfo: state => state.user.info, shareBg: state => state.user.shareBg })
   },
   created() {
-    this.getQrImage()
+    // this.getQrImage()
     this.creatQrCode()
   },
   methods: {
-    getQrImage() {
-      const reqt = {
-        address: 4
-      }
-      getImage(reqt).then(resp => {
-        // console.log(resp, 'getImage.... ')
-        let res = resp.data.JsonData
-        if (res.result === 'ok') {
-          this.qrbgimg = res.imgname[0]
-        }
-      }).catch(e => {
-        console.error(e)
-      })
-    },  
+    // getQrImage() {
+    //   const reqt = {
+    //     address: 4
+    //   }
+    //   getImage(reqt).then(resp => {
+    //     // console.log(resp, 'getImage.... ')
+    //     let res = resp.data.JsonData
+    //     if (res.result === 'ok') {
+    //       // this.qrbgimg = res.imgname[0]
+    //       this.$store.commit('user/setShareBg', res.imgname[0])
+    //     }
+    //   }).catch(e => {
+    //     console.error(e)
+    //   })
+    // },
     //生成二维码
     creatQrCode() {
       this.$nextTick(() => {

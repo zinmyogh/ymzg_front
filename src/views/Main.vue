@@ -25,7 +25,7 @@
       style="margin-top: 46px;">
       <van-swipe :autoplay="3000" indicator-color="white">
         <van-swipe-item v-for="(image, index) in cimg" :key="index">
-          <img :src="downloadImg(image)" class="swipe-image" height="200px" width="100%" />
+          <img :src="image.img" class="swipe-image" height="200px" width="100%" />
         </van-swipe-item>
       </van-swipe>
     </div>
@@ -75,6 +75,8 @@ export default {
   },
   created() {
     // this.getCarousel()
+    // this.getQrImage()
+    // this.getImageNotice()
   },
   methods: {
     goBack() {
@@ -148,6 +150,38 @@ export default {
         console.error(err)
       })
     },
+    getQrImage() {
+      const reqt = {
+        address: 4
+      }
+      getImage(reqt).then(resp => {
+        // console.log(resp, 'getImage.... ')
+        let res = resp.data.JsonData
+        if (res.result === 'ok') {
+          // this.qrbgimg = res.imgname[0]
+          this.$store.commit('user/setShareBg', res.imgname[0])
+        }
+      }).catch(e => {
+        console.error(e)
+      })
+    },
+    getImageNotice() {
+        const reqt = {
+          address: 2
+        }
+        getImage(reqt).then(resp => {
+          // imgName:[1.png,2.png,3.png]
+          // console.log('get home page image ', resp)
+          let res = resp.data.JsonData
+        if (res.result === 'ok') {
+          this.noticeImg = res.imgname
+          this.$store.commit('user/setNoticeImg', res.imgname)
+          // console.log(this.images, 'this.images')
+        }
+        }).catch(err => {
+          console.error(err)
+        })
+      },
   }
 }
 </script>

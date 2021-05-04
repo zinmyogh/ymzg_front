@@ -124,7 +124,7 @@ export default {
     // if (!getAnswerToday()) {
     //   if (!this.isAnswer) {
     this.getTopicData()
-    this.getCarousel()
+    // this.getCarousel()
     //   }
     // }
   },
@@ -152,7 +152,9 @@ export default {
         let res = resp.data.JsonData
         if (res.result === 'ok') {
           // this.images = res.imgname
+          
           this.$store.commit('user/setCarouselImg', res.imgname)
+          // console.log('this.cimgCheck ... ', this.cimgCheck)
           // console.log(this.images, 'this.images')
         }
       }).catch(err => {

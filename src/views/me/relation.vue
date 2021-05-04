@@ -54,7 +54,7 @@ import { mapState } from 'vuex'
           Id: this.userInfo.Id
         }
         getRelationData(reqt).then(resp => {
-          // console.log('resp relations data ..', resp)
+          console.log('resp relations data ..', resp)
           this.treeData = resp.data.JsonData.data
           let my = {
             Id: this.userInfo.Id,
@@ -190,7 +190,7 @@ import { mapState } from 'vuex'
   }
 }
 </style>
-
+<!---
 <style>
 .el-tree-node__expand-icon.is-leaf::before {
   display: none;
@@ -261,8 +261,5 @@ import { mapState } from 'vuex'
   width: 24px;
 }
 
-/* .el-tree-node.is-current > .el-tree-node__content {
-    background-color: #1989fa4d !important;
-    color: red;
-} */
 </style>
+--->

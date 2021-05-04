@@ -43,7 +43,7 @@
 
     <div class="aimg">
       <div class="aimg-container" v-for="(i, index) in noticeImg" :key="index">
-        <img :src="downloadImg(i)" alt="">
+        <img :src="i.img" alt="">
         <!-- <img src="https://images.pexels.com/photos/210607/pexels-photo-210607.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
         <img src="https://images.pexels.com/photos/210607/pexels-photo-210607.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
         <img src="https://images.pexels.com/photos/210607/pexels-photo-210607.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""> -->
@@ -68,7 +68,7 @@ import defaultSetting from '@/settings'
           // 'https://images.pexels.com/photos/5661243/pexels-photo-5661243.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
           // 'https://images.pexels.com/photos/6625398/pexels-photo-6625398.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
         ],
-        noticeImg: [],
+        // noticeImg: [],
         bulletin: {
           content: '',
           title: ''
@@ -78,16 +78,16 @@ import defaultSetting from '@/settings'
     },
     destroyed() {
       // console.log('desytoryed ==========')
-      this.noticeImg = []
+      // this.noticeImg = []
       this.bulletin = {}
       this.link = []
       this.images = []
     },
     computed: {
-      ...mapState({ userInfo: state => state.user.info })
+      ...mapState({ userInfo: state => state.user.info, noticeImg: state => state.user.noticeImg })
     },
     created() {
-      this.getImage()
+      // this.getImage()
       this.getlink()
       // this.getCarousel()
       this.getBulletin()
@@ -142,22 +142,23 @@ import defaultSetting from '@/settings'
           console.error(err)
         })
       },
-      getImage() {
-        const reqt = {
-          address: 2
-        }
-        getImage(reqt).then(resp => {
-          // imgName:[1.png,2.png,3.png]
-          // console.log('get home page image ', resp)
-          let res = resp.data.JsonData
-        if (res.result === 'ok') {
-          this.noticeImg = res.imgname
-          // console.log(this.images, 'this.images')
-        }
-        }).catch(err => {
-          console.error(err)
-        })
-      },
+      // getImage() {
+      //   const reqt = {
+      //     address: 2
+      //   }
+      //   getImage(reqt).then(resp => {
+      //     // imgName:[1.png,2.png,3.png]
+      //     // console.log('get home page image ', resp)
+      //     let res = resp.data.JsonData
+      //   if (res.result === 'ok') {
+      //     this.noticeImg = res.imgname
+      //     this.$store.commit('user/setNoticeImg', res.imgname)
+      //     // console.log(this.images, 'this.images')
+      //   }
+      //   }).catch(err => {
+      //     console.error(err)
+      //   })
+      // },
       getlink() {
         getLink().then(resp => {
           // link:[aaa.com,bbb.com,ccc.com]

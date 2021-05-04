@@ -21,7 +21,15 @@ const state = {
     WX: '',
     YHK: ''
   },
-  carouselImg: []
+  carouselImg: [{img: `${config.irl}6f64e08d9608f0545a784de4f4540a61.png`}, {img: `${config.irl}8aba2c1b1315a520ac93e3a905e6e2d1.png`}, {img: `${config.irl}50848da78231cb3dea1ee1d068a273cd.png`}],
+  shareBg: `${config.irl}1bb5fdfae8f813021363e1fa27f51eda.png`,
+  noticeImg: [
+    {img: `${config.irl}a2e548fdb307b3c794502e4afb856d81.png`},
+    {img: `${config.irl}6700a451dc796bce42a2a52b7b19c98d.png`},
+    {img: `${config.irl}82c1e1ad8fe0acac4bcca104945f711c.png`},
+    {img: `${config.irl}5d0123a070752d3fdb310f4e7ce8742c.png`}
+  ],
+  loginImg: `${config.irl}dabb043a96d82a2fc3a5012df2e4237d.png`
 }
 
 const mutations = {
@@ -36,6 +44,12 @@ const mutations = {
   },
   setCarouselImg: (state, payload) => {
     state.carouselImg = payload
+  },
+  setShareBg: (state, payload) => {
+    state.shareBg = payload
+  },
+  setNoticeImg: (state, payload) => {
+    state.noticeImg = payload
   }
 }
 

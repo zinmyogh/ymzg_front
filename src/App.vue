@@ -76,4 +76,74 @@ export default {
 .van-pagination__next:hover {
   background: #ddd !important;
 }
+
+.el-tree-node__expand-icon.is-leaf::before {
+  display: none;
+}
+.el-tree-node__content>.el-tree-node__expand-icon{
+  color: red !important;
+}
+.tree .el-tree-node {
+  position: relative;
+  padding-left: 15px;
+}
+.el-tree {
+  height: 80vh;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.el-tree>.el-tree-node {
+  display: inline-block;
+  min-width: 100%;
+}
+
+.tree .el-tree-node__children {
+  padding-left: 5px;
+  overflow-x: scroll;
+}
+
+.tree .el-tree-node :last-child:before {
+  height: 38px;
+}
+
+.tree .el-tree > .el-tree-node:before {
+  border-left: none;
+}
+
+.tree-container .el-tree > .el-tree-node:after {
+  border-top: none;
+}
+
+.tree .el-tree-node:before {
+  content: "";
+  left: -5px;
+  position: absolute;
+  right: auto;
+  border-width: 1px;
+}
+
+.tree .el-tree-node:after {
+  content: "";
+  left: -5px;
+  position: absolute;
+  right: auto;
+  border-width: 1px;
+}
+
+.tree .el-tree-node:before {
+  border-left: 1px double #ee0a24;
+  bottom: 0px;
+  height: 100%;
+  top: -26px;
+  width: 1px;
+}
+
+.tree .el-tree-node:after {
+  border-top: 1px dashed #ee0a24;
+  height: 20px;
+  top: 12px;
+  width: 24px;
+}
+
 </style>

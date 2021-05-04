@@ -25,7 +25,7 @@
           :rules="[{ required: true, message: '密码必填' }]"
         />
         <div style="margin: 16px;">
-          <van-button round block type="info" native-type="submit">
+          <van-button round block type="info" native-type="submit" :disabled="disableLogin">
             登录
           </van-button>
         </div>
@@ -49,6 +49,7 @@ import { setLOgin } from '@/utils/auth'
           username: '',
           password: '',
         },
+        disableLogin: false,
       }
     },
     computed: {
@@ -71,6 +72,7 @@ import { setLOgin } from '@/utils/auth'
           password: this.$md5(this.login.password),
           terminal: 'mobile'
         }
+        this.disableLogin = true
         this.$store.dispatch('user/login', reqt)
           .then((res) => {
             // console.log('res login ', res)
@@ -79,17 +81,20 @@ import { setLOgin } from '@/utils/auth'
                 message: '登录成功',
                 position: 'top'
               })
+              this.disableLogin = false
               // this.loginState = true
               // localStorage.setItem('_login_', JSON.stringify(reqt))
               setLOgin(JSON.stringify(reqt))
               this.$router.push('/')
             } else {
+              this.disableLogin = false
               Toast({
                 message: '登录失败',
                 position: 'top'
               })
             }
           }).catch(err => {
+            this.disableLogin = false
             console.error(err)
           })
       },

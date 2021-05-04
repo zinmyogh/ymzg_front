@@ -103,7 +103,7 @@ import $axios from 'axios'
           this.totalTime = 60
           this.canClick = false  // 这里重新开启
           }
-        },1000)
+        }, 1000)
       },
       // testHTTPS() {
       //   $axios({

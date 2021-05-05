@@ -84,7 +84,7 @@ import { getLOgin } from '@/utils/auth'
           signScore: '',
           answerScore: ''
         },
-        relations: 0,
+        relations: '',
         showWX: '',
         showYHK: '',
         shangji: {}
@@ -95,7 +95,7 @@ import { getLOgin } from '@/utils/auth'
     },
     created() {
       this.getScore()
-      this.getRelation()
+      // this.getRelation()
       this.getOwn()
       this.getShangji()
       this.nickname = this.userInfo.nickname

@@ -50,11 +50,14 @@ import { mapState } from 'vuex'
     },
     methods: {
       getRelation() {
+        // console.log(',,,,,,,', this.$store)
         const reqt = {
-          Id: this.userInfo.Id
+          Id: this.userInfo.Id,
+          name: this.userInfo.name
         }
+        // console.log(reqt)
         getRelationData(reqt).then(resp => {
-          console.log('resp relations data ..', resp)
+          // console.log('resp relations data ..', resp)
           this.treeData = resp.data.JsonData.data
           let my = {
             Id: this.userInfo.Id,
@@ -63,7 +66,12 @@ import { mapState } from 'vuex'
             name: this.userInfo.name,
             nickname: this.userInfo.nickname
           }
-          this.treeData.unshift(my)
+          // if(this.userInfo.name === 'admin') {
+
+          // } else { 
+            this.treeData.unshift(my)
+          // }
+          
           this.getData(this.treeData)
         }).catch(err => {
           console.error(err)

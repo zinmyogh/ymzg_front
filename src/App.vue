@@ -77,7 +77,7 @@ export default {
   background: #ddd !important;
 }
 
-.el-tree-node__expand-icon.is-leaf::before {
+/* .el-tree-node__expand-icon.is-leaf::before {
   display: none;
 }
 .el-tree-node__content>.el-tree-node__expand-icon{
@@ -144,6 +144,6 @@ export default {
   height: 20px;
   top: 12px;
   width: 24px;
-}
+} */
 
 </style>

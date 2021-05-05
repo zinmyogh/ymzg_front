@@ -30,22 +30,22 @@
       </van-swipe>
     </div>
 
-    <!-- <transition name="fade-transform" mode="out-in">
+    <transition name="fade-transform" mode="out-in">
       <router-view></router-view>
-    </transition> -->
+    </transition>
 
-    <keep-alive>
+    <!-- <keep-alive>
       <transition name="fade-transform" mode="out-in">
-        <router-view v-if="$route.meta.keepAlive">
+        <router-view v-if="$route.meta.keepAlive"> -->
             <!-- 这里是会被缓存的视图组件，比如 Home！ -->
-        </router-view>
+        <!-- </router-view>
       </transition>
     </keep-alive>
     <transition name="fade-transform" mode="out-in">
-      <router-view v-if="!$route.meta.keepAlive">
+      <router-view v-if="!$route.meta.keepAlive"> -->
           <!-- 这里是不被缓存的视图组件，比如 Edit！ -->
-      </router-view>
-    </transition>
+      <!-- </router-view>
+    </transition> -->
 
     <van-tabbar v-model="active" active-color="#ee0a24" inactive-color="#000" @change="onChange">
       <van-tabbar-item icon="home-o">首页</van-tabbar-item>

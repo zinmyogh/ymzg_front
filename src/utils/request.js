@@ -9,7 +9,7 @@ const defaultSettings = require('@/settings.js')
 const service = axios.create({
   baseURL: 'http://' + defaultSettings.ip + ':' + defaultSettings.port, // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
-  timeout: 15000 // request timeout
+  timeout: 30000 // request timeout
 })
 
 // request interceptor

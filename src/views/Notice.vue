@@ -69,22 +69,27 @@ import defaultSetting from '@/settings'
           // 'https://images.pexels.com/photos/6625398/pexels-photo-6625398.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
         ],
         // noticeImg: [],
-        bulletin: {
-          content: '',
-          title: ''
-        },
-        link: []
+        // bulletin: {
+        //   content: '',
+        //   title: ''
+        // },
+        // link: []
       }
     },
     destroyed() {
       // console.log('desytoryed ==========')
       // this.noticeImg = []
-      this.bulletin = {}
-      this.link = []
-      this.images = []
+      // this.bulletin = {}
+      // this.link = []
+      // this.images = []
     },
     computed: {
-      ...mapState({ userInfo: state => state.user.info, noticeImg: state => state.user.noticeImg })
+      ...mapState({ 
+        userInfo: state => state.user.info, 
+        noticeImg: state => state.user.noticeImg,
+        link: state => state.user.linkText,
+        bulletin: state => state.user.noticeText
+      })
     },
     created() {
       // this.getImage()
@@ -118,15 +123,7 @@ import defaultSetting from '@/settings'
         })
       },
       downloadImg(imgName) {
-        // let srcImg =
-        //   "http://" +
-        //   defaultSetting.ip +
-        //   ":" +
-        //   4195 +
-        //   "/download?imgName=" +
-        //   imgName;
         let srcImg = defaultSetting.imgUrl + imgName
-          // console.log('src images ', srcImg)
         return srcImg;
       },
       getBulletin() {
@@ -135,8 +132,13 @@ import defaultSetting from '@/settings'
           // console.log('getBulletin ... ', resp)
           let res = resp.data.JsonData
           if (res.result === 'ok') {
-            this.bulletin.title = res.title
-            this.bulletin.content = res.content
+            // this.bulletin.title = res.title
+            // this.bulletin.content = res.content
+            let bullet = {
+              title: res.title,
+              content: res.content
+            }
+            this.$store.commit('user/setNoticeText', bullet)
           }
         }).catch(err => {
           console.error(err)
@@ -165,7 +167,8 @@ import defaultSetting from '@/settings'
           // console.log('get link ', resp)
           let res = resp.data.JsonData
           if (res.result === 'ok') {
-            this.link = res.data
+            // this.link = res.data
+            this.$store.commit('user/setLinkText', res.data)
           }
         }).catch(err => {
           console.error(err)

@@ -21,6 +21,17 @@ const state = {
     WX: '',
     YHK: ''
   },
+  topic: {
+    Id: '',
+    title: '',
+    title: '',
+    a: '',
+    b: '',
+    c: '',
+    d: ''
+  },
+  noticeText: {},
+  linkText: [],
   carouselImg: [{img: `${config.irl}6f64e08d9608f0545a784de4f4540a61.png`}, {img: `${config.irl}8aba2c1b1315a520ac93e3a905e6e2d1.png`}, {img: `${config.irl}50848da78231cb3dea1ee1d068a273cd.png`}],
   shareBg: `${config.irl}1bb5fdfae8f813021363e1fa27f51eda.png`,
   noticeImg: [
@@ -41,6 +52,21 @@ const mutations = {
   },
   SET_LOGIN: (state, val) => {
     state.login = val
+  },
+  setNoticeText: (state, payload) => {
+    state.noticeText = payload
+  },
+  setLinkText: (state, payload) => {
+    state.linkText = payload
+  },
+  setTopic: (state, payload) => {
+    state.topic.Id = payload.Id
+    state.topic.title = payload.title
+    state.topic.topic = payload.topic
+    state.topic.a = payload.selectItem.split('#')[0]
+    state.topic.b = payload.selectItem.split('#')[1]
+    state.topic.c = payload.selectItem.split('#')[2]
+    state.topic.d = payload.selectItem.split('#')[3]
   },
   setCarouselImg: (state, payload) => {
     state.carouselImg = payload

@@ -103,22 +103,22 @@ export default {
       ],
       radio: '1',
       cd: 4,
-      topic: {
-        Id: '',
-        title: '',
-        topic: '',
-        a: '',
-        b: '',
-        c: '',
-        d: ''
-      },
+      // topic: {
+      //   Id: '',
+      //   title: '',
+      //   topic: '',
+      //   a: '',
+      //   b: '',
+      //   c: '',
+      //   d: ''
+      // },
       showAnsBtn: true,
       isAnswer: false
     }
   },
   computed: {
     ...mapGetters(['token']),
-    ...mapState({ userInfo: state => state.user.info })
+    ...mapState({ userInfo: state => state.user.info, topic: state => state.user.topic })
   },
   created() {
     // if (!getAnswerToday()) {
@@ -186,13 +186,14 @@ export default {
         // title:””           // 标题
         // topic:"",          // 题目内容  
         // selectItem:’’      // 选项abcd, 格式 # 隔开选项
-        this.topic.Id = resp.data.JsonData.Id
-        this.topic.title = resp.data.JsonData.title
-        this.topic.topic = resp.data.JsonData.topic
-        this.topic.a = resp.data.JsonData.selectItem.split('#')[0]
-        this.topic.b = resp.data.JsonData.selectItem.split('#')[1]
-        this.topic.c = resp.data.JsonData.selectItem.split('#')[2]
-        this.topic.d = resp.data.JsonData.selectItem.split('#')[3]
+        this.$store.commit('user/setTopic', resp.data.JsonData)
+        // this.topic.Id = resp.data.JsonData.Id
+        // this.topic.title = resp.data.JsonData.title
+        // this.topic.topic = resp.data.JsonData.topic
+        // this.topic.a = resp.data.JsonData.selectItem.split('#')[0]
+        // this.topic.b = resp.data.JsonData.selectItem.split('#')[1]
+        // this.topic.c = resp.data.JsonData.selectItem.split('#')[2]
+        // this.topic.d = resp.data.JsonData.selectItem.split('#')[3]
       }).catch(err => {
         console.error(err)
       })

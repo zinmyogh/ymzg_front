@@ -55,7 +55,7 @@
           <!-- <van-button size="small">Button</van-button>
           <van-button size="small" type="danger">Button</van-button> -->
           <div>
-            <van-button size="small" type="danger" @click="submitAnswer">提交</van-button>
+            <van-button size="small" type="danger" :disabled="answerDis" @click="submitAnswer">提交</van-button>
           </div>
         </template>
       </van-panel>
@@ -113,7 +113,8 @@ export default {
       //   d: ''
       // },
       showAnsBtn: true,
-      isAnswer: false
+      isAnswer: false,
+      answerDis: false
     }
   },
   computed: {
@@ -199,7 +200,9 @@ export default {
       })
     },
     submitAnswer() {
+      this.answerDis = true
       if (getAnswerToday()) {
+        this.answerDis = false
         return Toast('您当天已答题。')
       }
       let result = this.radio === '1' ? 'a' : this.radio === '2' ? 'b' : this.radio === '3' ? 'c' : this.radio === '4' ? 'd' : ''
@@ -216,17 +219,21 @@ export default {
         // console.log('anseererrrr...', resp)
         let res = resp.data.JsonData
         if (res.answerResult === 'err') {
+          this.answerDis = false
           Toast('答案错误！')
           // this.showAnsBtn = false
         } else if (res.answerResult === 'ok') {
+          this.answerDis = false
           Toast('恭喜老板，答对了')
           setAnswerToday()
           // console.log(getAnswerToday(), 'getAnswerToday ......')
           // this.showAnsBtn = false
         } else {
+          this.answerDis = false
           Toast(resp.data.msg)
         }
       }).catch(err => {
+        this.answerDis = false
         console.error(err)
       })
     },

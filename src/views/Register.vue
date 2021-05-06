@@ -21,7 +21,9 @@
           name="Phone"
           label="手机号"
           placeholder="请输入手机号"
-          :rules="[{ required: true, message: '手机号必填' }]"
+          type="tel"
+          :rules="[{ required: true, message: '手机号必填' },
+          { pattern: /^1[3456789]\d{9}$/, message: '手机号码格式错误！'}]"
         />
         <van-field
           v-model="register.password"
@@ -70,6 +72,7 @@ import $axios from 'axios'
           ref_id: '',
           nickname: ''
         },
+        phone: '',
         code: '',
         gCode: '',
         reference_id: '',
@@ -84,8 +87,10 @@ import $axios from 'axios'
       },
       getCode () {
         if (this.register.nickname === '' || this.register.password === '' || this.register.phone === '' || this.register.ref_id === '') return
+       if (!new RegExp(/^1[3456789]\d{9}$/).test(this.register.phone)) return 
         if (this.canClick) return  // 改动的是这两行代码
         this.canClick = true
+        this.phone = this.register.phone
         // Toast({
         //   position: 'top',
         //   message: '验证码已发送至您的手机'
@@ -178,6 +183,7 @@ import $axios from 'axios'
           }
       },
       onSubmitReg() {
+        // console.log('tttt', this.phone, this.register)
         // Id: 3
         // enable: 1
         // level: 5
@@ -202,11 +208,11 @@ import $axios from 'axios'
           })
         }
         const reqt = {
-          name: this.register.phone,
+          name: this.phone,
           password: this.$md5(this.register.password),
           reference_id: this.register.ref_id, // testing ID ... 
           // reference_id: this.reference_id,
-          phone: this.register.phone,
+          phone: this.phone,
           nickname: this.register.nickname
         }
         // console.log('reqt register ', reqt)
@@ -218,14 +224,17 @@ import $axios from 'axios'
                 position: 'top',
                 message: '注册成功'
               })
-              this.$router.push({name: 'Login', params: {phone: this.register.phone}})
+              this.$router.push({name: 'Login', params: {phone: this.phone}})
+              this.phone = ''
             } else {
+              this.phone = ''
               Toast({
                 position: 'top',
                 message: '注册失败'
               })
             }
           }).catch(err => {
+            this.phone = ''
             console.error(err)
           })
       },

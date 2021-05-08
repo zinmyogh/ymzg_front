@@ -4,8 +4,8 @@
       <van-icon name="arrow-left" />
       <font>返回首页</font>
     </div> -->
-    
-    <img src="https://static.dbqapp.com/d0148200b1c382dc9bdadfede8ca2c12.png" alt="" style="width: 40%; margin-bottom: 20px;">
+    <font color="red" size="3">登录不上请扫码重新下载</font>
+    <img src="https://static.dbqapp.com/d0148200b1c382dc9bdadfede8ca2c12.png" alt="" style="width: 40%; margin-bottom: 20px; margin-top: 15px">
     <!-----------------------------------------Login Form------------------------------------------------------>
     <div class="login-form">
       <font size="5">用户登录</font>

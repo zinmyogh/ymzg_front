@@ -1,5 +1,5 @@
 const port = 4195
-const id = '192.168.10.202'
+const id = '103.113.8.141'
 module.exports = {
   title: 'WD',
   ip: id, //'103.113.8.141', // '192.168.10.202',  // 114.29.253.162 https test

@@ -210,8 +210,10 @@ export default {
         userId: this.userInfo.Id,
         name: this.userInfo.name,
         Id: this.topic.Id,
-        result: result
+        result: result,
+        token: this.userInfo.token
       }
+      // console.log(sendStr)
       postAnswer(sendStr).then(resp => {
         // answerResult:”ok”    //  ok正确,  err 错误
         
@@ -224,13 +226,14 @@ export default {
           // this.showAnsBtn = false
         } else if (res.answerResult === 'ok') {
           this.answerDis = false
-          Toast('恭喜老板，答对了')
+          Toast('恭喜您回答正确')
           setAnswerToday()
           // console.log(getAnswerToday(), 'getAnswerToday ......')
           // this.showAnsBtn = false
         } else {
           this.answerDis = false
-          Toast(resp.data.msg)
+          let mm = resp.data.msg === 'token无效' ? '登录过期, 请重新登录!' : resp.data.msg
+          Toast(mm)
         }
       }).catch(err => {
         this.answerDis = false

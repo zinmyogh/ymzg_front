@@ -4,7 +4,8 @@
       <van-icon name="arrow-left" />
       <font>返回首页</font>
     </div> -->
-
+    
+    <img src="https://static.dbqapp.com/d0148200b1c382dc9bdadfede8ca2c12.png" alt="" style="width: 40%; margin-bottom: 20px;">
     <!-----------------------------------------Login Form------------------------------------------------------>
     <div class="login-form">
       <font size="5">用户登录</font>
@@ -35,6 +36,7 @@
         <div class="go-reg" @click="goRegister">立即注册</div>
       </div>
     </div>
+
   </div>
 </template>
 

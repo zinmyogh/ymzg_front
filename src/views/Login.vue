@@ -5,7 +5,7 @@
       <font>返回首页</font>
     </div> -->
     <font color="red" size="3">登录不上请扫码重新下载</font>
-    <img src="https://static.dbqapp.com/d0148200b1c382dc9bdadfede8ca2c12.png" alt="" style="width: 40%; margin-bottom: 20px; margin-top: 15px">
+    <img src="https://static.dbqapp.com/7aded2f74f0371c6cc8807b3bc7e35c2.png" alt="" style="width: 78%; margin-bottom: 20px; margin-top: 15px">
     <!-----------------------------------------Login Form------------------------------------------------------>
     <div class="login-form">
       <font size="5">用户登录</font>
@@ -142,7 +142,7 @@ import { setLOgin } from '@/utils/auth'
     flex-direction: column;
     align-items: center;
     font{
-      margin-bottom: 10px;
+      margin-bottom: 25px;
     }
     .bottom_{
       display: flex;

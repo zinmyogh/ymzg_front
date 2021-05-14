@@ -26,7 +26,7 @@ import defaultSetting from '@/settings'
 export default {
   data() {
     return {
-      qrLink: "https://www.shopkk889.com",
+      qrLink: "https://www.shophh888.com",
       imgUrl: "",
       qrbgimg: ''
     }

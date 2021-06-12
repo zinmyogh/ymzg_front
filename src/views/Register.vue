@@ -46,7 +46,7 @@
           </template>
         </van-field>
         <div style="margin: 16px;">
-          <van-button round block type="primary" native-type="submit">
+          <van-button round block type="primary" :disabled="regDisable" native-type="submit">
             立即注册
           </van-button>
         </div>
@@ -72,6 +72,7 @@ import $axios from 'axios'
           ref_id: '',
           nickname: ''
         },
+        regDisable: false,
         phone: '',
         code: '',
         gCode: '',
@@ -216,6 +217,7 @@ import $axios from 'axios'
           nickname: this.register.nickname
         }
         // console.log('reqt register ', reqt)
+        this.regDisable = true
         this.$store.dispatch('user/register', reqt)
           .then((res) => {
             // console.log('res reg ', res)
@@ -226,8 +228,10 @@ import $axios from 'axios'
               })
               this.$router.push({name: 'Login', params: {phone: this.phone}})
               this.phone = ''
+              this.regDisable = false
             } else {
               this.phone = ''
+              this.regDisable = false
               Toast({
                 position: 'top',
                 message: '注册失败'
@@ -235,6 +239,7 @@ import $axios from 'axios'
             }
           }).catch(err => {
             this.phone = ''
+            this.regDisable = false
             console.error(err)
           })
       },

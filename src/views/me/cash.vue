@@ -1,7 +1,10 @@
 <template>
   <div class="cash">
+    <div class="text">
+      下载央行数字货币钱包以后自动提现
+    </div>
 
-    <div class="acc">
+    <!-- <div class="acc">
       <font>提交提现</font>
       <van-cell-group>
         <van-field v-model="cash.TransferJet" type="number" label="提现金额" placeholder="请输入" />
@@ -16,7 +19,7 @@
         </div>
         
       </van-cell-group>
-    </div>
+    </div> -->
     
   </div>
 </template>
@@ -47,21 +50,35 @@ import { Toast } from 'vant'
 </script>
 
 <style lang="scss" scoped>
-.cash {
+.cash{
+  width: 100%;
+  height: 90vh;
   margin-top: 46px;
-  background: #f7f8fa;
-  .acc{
-    font{
-      color: grey;
-      margin-left: 10px;
-      line-height: 30px;
-      border-left: 3px solid red;
-      padding-left: 5px;
-    }
-    .update-social{
-      margin: 10px 20px;
-      text-align: center;
-    }
-  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f5f5;
 }
+.text {
+  color: grey;
+  font-size: 2.5vh;
+}
+// .cash {
+//   margin-top: 46px;
+//   background: #f7f8fa;
+//   .acc{
+//     font{
+//       color: grey;
+//       margin-left: 10px;
+//       line-height: 30px;
+//       border-left: 3px solid red;
+//       padding-left: 5px;
+//     }
+//     .update-social{
+//       margin: 10px 20px;
+//       text-align: center;
+//     }
+//   }
+// }
 </style>
